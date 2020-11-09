@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity(), TeamListener {
         listTeam = arrayListOf(
             Team(
                 nameTeam = "Everton",
-                imageTeam = "https://www.thesportsdb.com/images/media/team/badge/eqayrf1523184794.png"
+                imageTeam = "https://unsplash.com/photos/nG2RnoLJeCo"
             ),
             Team(
                 nameTeam = "Man City",

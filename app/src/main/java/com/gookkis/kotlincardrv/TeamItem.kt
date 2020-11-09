@@ -1,17 +1,16 @@
 package com.gookkis.kotlincardrv
 
-import android.R.attr.direction
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.content.Context
 import android.os.Build
 import android.view.View
-
 import androidx.annotation.RequiresApi
 import com.squareup.picasso.Picasso
 import com.xwray.groupie.kotlinandroidextensions.Item
 import com.xwray.groupie.kotlinandroidextensions.ViewHolder
 import kotlinx.android.synthetic.main.item_grid_team.view.*
+
 
 
 class TeamItem(
@@ -25,13 +24,13 @@ class TeamItem(
     @RequiresApi(Build.VERSION_CODES.M)
     override fun bind(viewHolder: ViewHolder, position: Int) {
 
+
         viewHolder.itemView.tv_team.text = teams.nameTeam
         Picasso.get().load(teams.imageTeam).into(viewHolder.itemView.img_team)
 
         viewHolder.itemView.show.setOnClickListener {
             listener.onButtonAdd(viewHolder.adapterPosition)
             if (isClickable) {
-
                 viewHolder.itemView.addUrl.visibility = View.VISIBLE
                 viewHolder.itemView.editUrl.visibility = View.VISIBLE
             }
