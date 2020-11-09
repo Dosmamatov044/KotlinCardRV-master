@@ -1,15 +1,15 @@
 package com.gookkis.kotlincardrv
 
-import android.content.Context
 import android.os.Bundle
+import android.view.MotionEvent
 import android.view.View
-import android.view.animation.Animation
-import android.view.animation.AnimationUtils
-import android.view.animation.LayoutAnimationController
+import android.view.View.OnTouchListener
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.SnapHelper
 import com.google.android.material.snackbar.Snackbar
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.kotlinandroidextensions.ViewHolder
@@ -59,15 +59,16 @@ groupAdapter.notifyDataSetChanged()
 
             layoutManager = LinearLayoutManager(this@MainActivity, RecyclerView.HORIZONTAL, false)
             adapter = groupAdapter
+
+
+
        groupAdapter.notifyDataSetChanged()
         }
 
     }
 
     override fun onButtonDelete(delete: Int, idDelete: Int) {
-
         val count: Int=delete
-
         button=findViewById(idDelete)
 
         groupAdapter.removeGroup(delete)
@@ -75,16 +76,11 @@ groupAdapter.notifyDataSetChanged()
         groupAdapter.notifyItemChanged(delete)
         groupAdapter.notifyItemRangeRemoved(0, count)
 
-
         if(groupAdapter.itemCount ==1&&listTeam?.size!=0) {
         button?.visibility=View.INVISIBLE
+            groupAdapter.notifyDataSetChanged()
 
-       groupAdapter.notifyDataSetChanged()
-
-    }else if (groupAdapter.itemCount==2&&groupAdapter.itemCount==0) {
-        button?.visibility=View.VISIBLE
-        groupAdapter.notifyDataSetChanged()
-        }
+    }
     }
 
     override fun onButtonAdd(show: Int) {
@@ -98,12 +94,7 @@ groupAdapter.notifyDataSetChanged()
         listTeam!!.map {
             groupAdapter.add(TeamItem(it, this, this))
             button?.visibility=View.VISIBLE
-
-                groupAdapter.notifyDataSetChanged()
-
-
-
-
+            groupAdapter.notifyDataSetChanged()
         }}}
 
 

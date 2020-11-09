@@ -47,14 +47,15 @@ class TeamItem(
             val animator_Y: ObjectAnimator = ObjectAnimator.ofFloat(
                 viewHolder.itemView,
                 "translationY",
-                -100F,
+                100F,
                 0F
+
             )
-            animator_Y.duration = 1000
+            animator_Y.duration = 3000
 
             val animator_X: ObjectAnimator =
                 ObjectAnimator.ofFloat(viewHolder.itemView, "translationX", -20F, 20F, 0F)
-            animator_X.duration = 1000
+            animator_X.duration = 3000
 
             animatorSet.playTogether(animator_X, animator_Y)
             animatorSet.start()
