@@ -79,7 +79,7 @@ groupAdapter.notifyDataSetChanged()
         groupAdapter.notifyItemRemoved(delete)
         groupAdapter.notifyItemChanged(delete)
         groupAdapter.notifyItemRangeRemoved(0, count)
-
+        groupAdapter.notifyDataSetChanged()
         if(groupAdapter.itemCount ==1&&listTeam?.size!=0) {
         button?.visibility=View.INVISIBLE
             groupAdapter.notifyDataSetChanged()
