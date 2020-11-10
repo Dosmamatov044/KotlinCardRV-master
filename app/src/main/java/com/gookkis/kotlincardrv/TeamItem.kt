@@ -14,6 +14,7 @@ import kotlinx.android.synthetic.main.item_grid_team.view.*
 
 
 class TeamItem(
+
     private val teams: Team,
     private val listener: TeamListener,
     private val context: Context
@@ -27,7 +28,7 @@ class TeamItem(
 
         viewHolder.itemView.tv_team.text = teams.nameTeam
         Picasso.get().load(teams.imageTeam).into(viewHolder.itemView.img_team)
-
+          Picasso.get().load(teams.player_img).into(viewHolder.itemView.player_Img)
         viewHolder.itemView.show.setOnClickListener {
             listener.onButtonAdd(viewHolder.adapterPosition)
             if (isClickable) {
@@ -82,6 +83,7 @@ interface TeamListener {
     fun onButtonDelete(delete: Int, idDelete: Int)
     fun onButtonAdd(show: Int)
     fun onEditText(changeUrlText: String, idTextView: Int)
+
 
 
 }

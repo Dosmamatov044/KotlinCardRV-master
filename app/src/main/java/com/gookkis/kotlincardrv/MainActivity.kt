@@ -29,23 +29,27 @@ class MainActivity : AppCompatActivity(), TeamListener {
         listTeam = arrayListOf(
             Team(
                 nameTeam = "Everton",
-                imageTeam = "https://www.thesportsdb.com/images/media/team/badge/eqayrf1523184794.png"
+                imageTeam = "https://www.thesportsdb.com/images/media/team/badge/eqayrf1523184794.png",
+                player_img = "https://www.thesportsdb.com/images/media/player/render/small/es4zhk1585671612.png"
             ),
             Team(
                 nameTeam = "Man City",
-                imageTeam = "https://www.thesportsdb.com/images/media/team/badge/vwpvry1467462651.png"
-            ),
+                imageTeam = "https://www.thesportsdb.com/images/media/team/badge/vwpvry1467462651.png",
+            player_img = "https://www.thesportsdb.com/images/media/player/banner/gp4eiz1600017457.jpg"),
             Team(
                 nameTeam = "Liverpool",
-                imageTeam = "https://www.thesportsdb.com/images/media/team/badge/uvxuqq1448813372.png"
+                imageTeam = "https://www.thesportsdb.com/images/media/team/badge/uvxuqq1448813372.png",
+                player_img = "https://www.thesportsdb.com/images/media/player/render/small/41r4nq1559589736.png"
             ),
             Team(
                 nameTeam = "Man United",
-                imageTeam = "https://www.thesportsdb.com/images/media/team/badge/xzqdr11517660252.png"
+                imageTeam = "https://www.thesportsdb.com/images/media/team/badge/xzqdr11517660252.png",
+                player_img = "https://www.thesportsdb.com/images/media/player/render/small/09foh91557911811.png"
             ),
             Team(
                 nameTeam = "Chelsea",
                 imageTeam = "https://www.thesportsdb.com/images/media/team/badge/yvwvtu1448813215.png"
+            , player_img = "https://www.thesportsdb.com/images/media/player/render/small/j66w321557998250.png"
             ))
 
         //val teamAdapter = TeamAdapter(listTeam)
@@ -90,7 +94,7 @@ groupAdapter.notifyDataSetChanged()
     override fun onEditText(changeUrlText: String, idTextView: Int) {
 
         if (changeUrlText.startsWith("https://")){
-         listTeam= arrayListOf(Team("newPhoto",changeUrlText))
+         listTeam= arrayListOf(Team("newPhoto",changeUrlText,"-"))
         listTeam!!.map {
             groupAdapter.add(TeamItem(it, this, this))
             button?.visibility=View.VISIBLE
