@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.SnapHelper
+
 import com.google.android.material.snackbar.Snackbar
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.kotlinandroidextensions.ViewHolder
@@ -107,15 +107,12 @@ Utils.showToast(this,"Данный урл добавить нельзя, поп�
         }
     }
 
-
     override fun onTeamClicked(team: Team) {
         Snackbar.make(root, team.nameTeam, Snackbar.LENGTH_SHORT).show()
 
     }
 
     override fun onTextClicked(team: Team) {
-        Snackbar.make(root, "Text Clicked " + team.nameTeam, Snackbar.LENGTH_SHORT).show()
+        Utils.showSnackBar(root,"TextClick")
     }
-
-
 }
