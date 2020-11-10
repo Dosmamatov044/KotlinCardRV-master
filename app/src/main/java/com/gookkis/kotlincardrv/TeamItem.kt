@@ -43,22 +43,61 @@ class TeamItem(
             listener.onTextClicked(teams)
         }
         viewHolder.itemView.delete.setOnClickListener {
+  //1 start
+            val animatorButton = AnimatorSet()
+            val animator_Y1: ObjectAnimator = ObjectAnimator.ofFloat(
+                viewHolder.itemView.delete,
+                "translationY",
+                100F,
+                0F)
+            animator_Y1.duration = 2000
+
+            val animator_X1: ObjectAnimator =
+                ObjectAnimator.ofFloat(viewHolder.itemView.delete, "translationX", -70F, 40F, 0F)
+
+            animatorButton.duration = 2000
+
+            animatorButton.playTogether(animator_X1, animator_Y1)
+            animatorButton.start()
+//1 end
+//2 start
             val animatorSet = AnimatorSet()
             val animator_Y: ObjectAnimator = ObjectAnimator.ofFloat(
                 viewHolder.itemView,
                 "translationY",
                 100F,
-                0F
-
-            )
-            animator_Y.duration = 3000
+                0F)
+            animator_Y.duration = 2000
 
             val animator_X: ObjectAnimator =
                 ObjectAnimator.ofFloat(viewHolder.itemView, "translationX", -20F, 20F, 0F)
-            animator_X.duration = 3000
+
+            animator_X.duration = 2000
 
             animatorSet.playTogether(animator_X, animator_Y)
             animatorSet.start()
+//2 end
+
+            val animatorButtonAdd = AnimatorSet()
+            val animator_Y2: ObjectAnimator = ObjectAnimator.ofFloat(
+                viewHolder.itemView.show,
+                "translationY",
+                150F,
+                8F,3F)
+            animator_Y1.duration = 2000
+
+            val animator_X2: ObjectAnimator =
+                ObjectAnimator.ofFloat(viewHolder.itemView.delete, "translationX", -70F, 40F, 0F)
+
+            animatorButton.duration = 2000
+
+            animatorButton.playTogether(animator_X2, animator_Y2)
+            animatorButton.start()
+
+
+
+
+
 
             listener.onButtonDelete(viewHolder.adapterPosition, R.id.delete)
 
@@ -72,6 +111,11 @@ class TeamItem(
     }
 
     override fun getLayout() = R.layout.item_grid_team
+
+
+
+
+
 
 }
 

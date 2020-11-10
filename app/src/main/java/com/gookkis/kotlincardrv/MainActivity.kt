@@ -95,9 +95,10 @@ groupAdapter.notifyDataSetChanged()
 
         if (changeUrlText.startsWith("https://")){
          listTeam= arrayListOf(Team("newPhoto",changeUrlText,"-"))
+            button?.visibility=View.VISIBLE
         listTeam!!.map {
             groupAdapter.add(TeamItem(it, this, this))
-            button?.visibility=View.VISIBLE
+
             groupAdapter.notifyDataSetChanged()
         } }else{
 Utils.showToast(this,"Данный урл добавить нельзя, попробуйте добавить url начинающийся с https")
