@@ -91,7 +91,7 @@ groupAdapter.notifyDataSetChanged()
         Snackbar.make(root, "Text Clicked $show",Snackbar.LENGTH_SHORT).show()
     }
 
-    override fun onEditText(changeUrlText: String, idTextView: Int) {
+    override fun onEditTextButton(changeUrlText: String, idTextView: Int) {
 
         if (changeUrlText.startsWith("https://")){
          listTeam= arrayListOf(Team("newPhoto",changeUrlText,"-"))

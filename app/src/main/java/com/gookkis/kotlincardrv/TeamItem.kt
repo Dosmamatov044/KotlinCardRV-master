@@ -67,7 +67,7 @@ class TeamItem(
         viewHolder.itemView.addUrl.setOnClickListener {
             val str = viewHolder.itemView.editUrl.text.toString()
 
-            listener.onEditText(str, R.id.editUrl)
+            listener.onEditTextButton(str, R.id.editUrl)
         }
     }
 
@@ -82,7 +82,7 @@ interface TeamListener {
     fun onTextClicked(team: Team)
     fun onButtonDelete(delete: Int, idDelete: Int)
     fun onButtonAdd(show: Int)
-    fun onEditText(changeUrlText: String, idTextView: Int)
+    fun onEditTextButton(changeUrlText: String, idTextView: Int)
 
 
 
