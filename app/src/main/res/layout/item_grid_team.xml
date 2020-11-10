@@ -71,6 +71,10 @@
             android:visibility="gone"
             android:inputType="textUri"
             />
+    
+
+
+
     </RelativeLayout>
 
 </androidx.cardview.widget.CardView>
