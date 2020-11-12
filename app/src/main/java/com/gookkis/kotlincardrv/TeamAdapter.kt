@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.item_team.view.delete
 import kotlinx.android.synthetic.main.item_team.view.img_team
 import kotlinx.android.synthetic.main.item_team.view.tv_team
 
-/*class TeamAdapter(private val teams: MutableList<Team>) : RecyclerView.Adapter<TeamHolder>() {
+class TeamAdapter(private val teams: MutableList<Team>) : RecyclerView.Adapter<TeamHolder>() {
 
 
 
@@ -55,4 +55,4 @@ class TeamHolder(view: View) : RecyclerView.ViewHolder(view) {
 
 
 
-}*/
+}

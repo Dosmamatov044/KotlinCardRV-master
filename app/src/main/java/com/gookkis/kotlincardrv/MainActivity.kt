@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.SnapHelper
 
 import com.google.android.material.snackbar.Snackbar
 import com.xwray.groupie.GroupAdapter
@@ -17,7 +18,10 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), TeamListener {
     var button: Button? = null
-//    private var view: View? = null
+private var isAdding:Boolean=false
+
+
+    //    private var view: View? = null
     private var listTeam: MutableList<Team>? = null
     private val groupAdapter = GroupAdapter<ViewHolder>()
 // val recyclerView:RecyclerView?=null
@@ -64,7 +68,7 @@ groupAdapter.notifyDataSetChanged()
             layoutManager = LinearLayoutManager(this@MainActivity, RecyclerView.HORIZONTAL, false)
             adapter = groupAdapter
 
-
+           
 
        groupAdapter.notifyDataSetChanged()
         }
@@ -75,16 +79,29 @@ groupAdapter.notifyDataSetChanged()
         val count: Int=delete
         button=findViewById(idDelete)
 
+
+
+
+
         groupAdapter.removeGroup(delete)
         groupAdapter.notifyItemRemoved(delete)
         groupAdapter.notifyItemChanged(delete)
         groupAdapter.notifyItemRangeRemoved(0, count)
         groupAdapter.notifyDataSetChanged()
-        if(groupAdapter.itemCount ==1&&listTeam?.size!=0) {
-        button?.visibility=View.INVISIBLE
-            groupAdapter.notifyDataSetChanged()
 
-    }
+
+      if (isAdding){
+        if(groupAdapter.itemCount ==1&&listTeam?.size!=0) {
+            button?.visibility = View.INVISIBLE
+            groupAdapter.notifyDataSetChanged()
+       isAdding=false
+
+        }
+    }else{
+          button?.visibility=View.VISIBLE
+          isAdding=true
+
+      }
     }
 
     override fun onButtonAdd(show: Int) {
@@ -93,7 +110,8 @@ groupAdapter.notifyDataSetChanged()
 
     override fun onEditTextButton(changeUrlText: String, idTextView: Int) {
 
-        if (changeUrlText.startsWith("https://")){
+        if (changeUrlText.startsWith("https://"
+            )){
          listTeam= arrayListOf(Team("newPhoto",changeUrlText,"-"))
             button?.visibility=View.VISIBLE
         listTeam!!.map {
